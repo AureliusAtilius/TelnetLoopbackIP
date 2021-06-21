@@ -24,8 +24,8 @@ for IP in f:
 
    # Create and name VLANs 2-20
    for i in range(2,21):
-      tn.write(b"vlan " + str(n).encode('ascii') + b"\n")
-      tn.write(b"name  Python_VLAN_"+str(n).encode('ascii')+b"\n")
+      tn.write(b"vlan " + str(i).encode('ascii') + b"\n")
+      tn.write(b"name  Python_VLAN_"+str(i).encode('ascii')+b"\n")
 
    # Exit global config mode
    tn.write(b"end\n")
