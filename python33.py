@@ -20,8 +20,8 @@ tn.write(b"conf t\n") # input "conf t" plus carriage return to enter global conf
 # Create VLANS 2-20
 for i in range(2,21):
 
-    tn.write(b"vlan " + str(n).encode('ascii') + b"\n")
-    tn.write(b"name  Python_VLAN_"+str(n).encode('ascii')+b"\n")
+    tn.write(b"vlan " + str(i).encode('ascii') + b"\n")
+    tn.write(b"name  Python_VLAN_"+str(i).encode('ascii')+b"\n")
 
 tn.write(b"end\n") # Exit global configuration mode
 tn.write(b"wr\n")  # Save configuration
