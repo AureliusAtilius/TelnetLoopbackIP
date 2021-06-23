@@ -29,5 +29,6 @@ for IP in f:
 
    # Exit global config mode
    tn.write(b"end\n")
+   tn.write(b"wr\n")
    tn.write(b"exit\n")
    print(tn.read_all().decode('ascii'))
