@@ -15,14 +15,18 @@ for IP in f:
         tn = telnetlib.Telnet(HOST)
         tn.read_until(b'Username: ')
         tn.write(user.encode('ascii')+b'\n')
+        if password:
+                tn.read_until(b'Password: ')
+                tn.write(password.encode('ascii')+b'\n')
         # Have terminal print all lines of running config
         tn.write(b"terminal length 0\n")
         tn.write(b"show run\n")
+        tn.write(b'exit\n')
 
         # Read the terminal out put and save it to a file.
         readoutput= tn.read_all()
         saveoutput= open("switch"+HOST, "w")
-        saveoutput.write(read.decode('ascii'))
+        saveoutput.write(readoutput.decode('ascii'))
         saveoutput.write("\n")
         saveoutput.close
         print(tn.read_all().decode('ascii'))
